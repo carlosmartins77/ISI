@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Categorias>
+<Categoria><Nome>Comfort Bicycles</Nome> <Quantidade>537</Quantidade></Categoria>
+<Categoria><Nome>Electric Bikes</Nome> <Quantidade>212</Quantidade></Categoria>
+<Categoria><Nome>Road Bikes</Nome> <Quantidade>374</Quantidade></Categoria>
+<Categoria><Nome>Cruisers Bicycles</Nome> <Quantidade>1378</Quantidade></Categoria>
+<Categoria><Nome>Mountain Bikes</Nome> <Quantidade>1183</Quantidade></Categoria>
+<Categoria><Nome>Children Bicycles</Nome> <Quantidade>782</Quantidade></Categoria>
+<Categoria><Nome>Cyclocross Bicycles</Nome> <Quantidade>256</Quantidade></Categoria>
+</Categorias>
