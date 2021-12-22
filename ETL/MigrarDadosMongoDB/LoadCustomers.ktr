@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>SalesPerCategory</name>
+    <name>LoadCustomers</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -427,20 +428,19 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2021/12/21 10:54:22.152</created_date>
+    <created_date>2021/12/22 10:16:37.948</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/12/21 10:54:22.152</modified_date>
+    <modified_date>2021/12/22 10:16:37.948</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>##### -> Serve para remover os 0 desnecessários
-Representa apenas 5 digitos (Para esta soluçao chega)</note>
-      <xloc>176</xloc>
-      <yloc>64</yloc>
-      <width>369</width>
-      <heigth>50</heigth>
+      <note>Atribuir o customer_key ao _id para prevernir duplicados</note>
+      <xloc>560</xloc>
+      <yloc>144</yloc>
+      <width>385</width>
+      <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
       <fontbold>N</fontbold>
@@ -449,8 +449,8 @@ Representa apenas 5 digitos (Para esta soluçao chega)</note>
       <fontcolorgreen>0</fontcolorgreen>
       <fontcolorblue>0</fontcolorblue>
       <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>255</backgroundcolorgreen>
-      <backgroundcolorblue>128</backgroundcolorblue>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
       <bordercolorred>100</bordercolorred>
       <bordercolorgreen>100</bordercolorgreen>
       <bordercolorblue>100</bordercolorblue>
@@ -518,23 +518,23 @@ Representa apenas 5 digitos (Para esta soluçao chega)</note>
   </connection>
   <order>
     <hop>
-      <from>N_Vendas por Categoria</from>
-      <to>Remover NULLS</to>
+      <from>Filtar nulls</from>
+      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Remover NULLS</from>
-      <to>NOT NULL Categories XML</to>
+      <from>Tabela de Clientes</from>
+      <to>Filtar nulls</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Remover NULLS</from>
-      <to>Ignorar</to>
+      <from>Filtar nulls</from>
+      <to>MongoDB output</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Ignorar</name>
+    <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
@@ -553,69 +553,84 @@ Representa apenas 5 digitos (Para esta soluçao chega)</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>192</yloc>
+      <xloc>736</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>NOT NULL Categories XML</name>
-    <type>XMLOutput</type>
+    <name>Filtar nulls</name>
+    <type>FilterRows</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <encoding>UTF-8</encoding>
-    <name_space/>
-    <xml_main_element>Categorias</xml_main_element>
-    <xml_repeat_element>Categoria</xml_repeat_element>
-    <file>
-      <name>${Internal.Entry.Current.Directory}/QuantidadePorCategoria</name>
-      <extention>xml</extention>
-      <servlet_output>N</servlet_output>
-      <do_not_open_newfile_init>N</do_not_open_newfile_init>
-      <split>N</split>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <SpecifyFormat>N</SpecifyFormat>
-      <omit_null_values>N</omit_null_values>
-      <date_time_format/>
-      <add_to_result_filenames>N</add_to_result_filenames>
-      <zipped>N</zipped>
-      <splitevery>0</splitevery>
-    </file>
-    <fields>
-      <field>
-        <content_type>Element</content_type>
-        <name>category_name</name>
-        <element>Nome</element>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>count</name>
-        <element>Quantidade</element>
-        <type>Integer</type>
-        <format>#####</format>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>9</length>
-        <precision>0</precision>
-      </field>
-    </fields>
+    <send_true_to>Dummy (do nothing)</send_true_to>
+    <send_false_to>MongoDB output</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <conditions>
+          <condition>
+            <negated>N</negated>
+            <conditions>
+              <condition>
+                <negated>N</negated>
+                <leftvalue>customer_key</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>Customer_Name</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>Email</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>Street</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>City</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>State</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>Zip_code</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+            </conditions>
+          </condition>
+        </conditions>
+      </condition>
+    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -625,13 +640,132 @@ Representa apenas 5 digitos (Para esta soluçao chega)</note>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>288</yloc>
+      <xloc>432</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>N_Vendas por Categoria</name>
+    <name>MongoDB output</name>
+    <type>MongoDbOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <mongo_host>localhost</mongo_host>
+    <mongo_port>27017</mongo_port>
+    <use_all_replica_members>N</use_all_replica_members>
+    <auth_mech/>
+    <auth_kerberos>N</auth_kerberos>
+    <mongo_db>BikeStores</mongo_db>
+    <mongo_collection>customers</mongo_collection>
+    <batch_insert_size>100</batch_insert_size>
+    <connect_timeout/>
+    <socket_timeout/>
+    <use_ssl_socket_factory>N</use_ssl_socket_factory>
+    <read_preference>primary</read_preference>
+    <write_concern/>
+    <w_timeout/>
+    <journaled_writes>N</journaled_writes>
+    <truncate>N</truncate>
+    <update>N</update>
+    <upsert>N</upsert>
+    <multi>N</multi>
+    <modifier_update>N</modifier_update>
+    <write_retries>2</write_retries>
+    <write_retry_delay>1</write_retry_delay>
+    <mongo_fields>
+      <mongo_field>
+        <incoming_field_name>customer_key</incoming_field_name>
+        <mongo_doc_path>_id</mongo_doc_path>
+        <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>Y</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>Customer_Name</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>Email</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>Street</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>City</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>State</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>Zip_code</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+    </mongo_fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>736</xloc>
+      <yloc>208</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tabela de Clientes</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -642,9 +776,14 @@ Representa apenas 5 digitos (Para esta soluçao chega)</note>
       <schema_name/>
     </partitioning>
     <connection>BikeStoresDM</connection>
-    <sql>SELECT pr.category_name, COUNT(pr.category_name) AS count
-FROM dim_product pr INNER JOIN ft_order ft ON pr.product_key = ft.product_key
-GROUP BY category_name</sql>
+    <sql>SELECT [customer_key]
+      ,[Customer_Name]
+      ,[Email]
+      ,[Street]
+      ,[City]
+      ,[State]
+      ,[Zip_code]
+  FROM [BikeStoresDM].[dbo].[dim_customer]</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -653,12 +792,127 @@ GROUP BY category_name</sql>
     <cached_row_meta_active>N</cached_row_meta_active>
     <row-meta>
       <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>product_key</name>
+        <length>15</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>product_key</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>product_name</name>
+        <length>255</length>
+        <precision>-1</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>product_name</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>brand_id</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>brand_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>brand_name</name>
+        <length>255</length>
+        <precision>-1</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>brand_name</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>category_id</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>category_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
         <name>category_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>N_Vendas por Categoria</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>category_name</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -678,11 +932,57 @@ GROUP BY category_name</sql>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>count</name>
+        <name>model_year</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>N_Vendas por Categoria</origin>
-        <comments>count</comments>
+        <origin>Tabela de Produtos</origin>
+        <comments>model_year</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Number</type>
+        <storagetype>normal</storagetype>
+        <name>list_price</name>
+        <length>10</length>
+        <precision>2</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>list_price</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>quantity</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>quantity</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -708,43 +1008,8 @@ GROUP BY category_name</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>144</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Remover NULLS</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>Ignorar</send_true_to>
-    <send_false_to>NOT NULL Categories XML</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>category_name</leftvalue>
-        <function>IS NULL</function>
-        <rightvalue/>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>336</xloc>
-      <yloc>192</yloc>
+      <xloc>208</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
