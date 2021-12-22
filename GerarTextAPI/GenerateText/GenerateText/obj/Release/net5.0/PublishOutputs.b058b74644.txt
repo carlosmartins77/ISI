@@ -1,0 +1,11 @@
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\GenerateText.exe
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\GenerateText.dll
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\GenerateText.deps.json
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\GenerateText.runtimeconfig.json
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\GenerateText.pdb
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\CARLOS\Documents\GitHub\ISI\GerarTextAPI\GenerateText\GenerateText\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>LoadProdutos</name>
+    <name>LoadOrders</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -435,6 +435,29 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
+    <notepad>
+      <note>Nao verifica shippeddates nulos, porque 
+podem ser produtos vendidos em loja
+</note>
+      <xloc>352</xloc>
+      <yloc>160</yloc>
+      <width>282</width>
+      <heigth>70</heigth>
+      <fontname>Segoe UI</fontname>
+      <fontsize>9</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>205</backgroundcolorgreen>
+      <backgroundcolorblue>112</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
   <connection>
     <name>BikeStoresDM</name>
@@ -502,7 +525,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Tabela de Produtos</from>
+      <from>Tabela de Encomendas</from>
       <to>Filtar nulls</to>
       <enabled>Y</enabled>
     </hop>
@@ -559,6 +582,55 @@
             <conditions>
               <condition>
                 <negated>N</negated>
+                <leftvalue>_id</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>order_id</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>order_date_key</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>required_date_key</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>customer_key</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>store_key</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>staff_key</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
                 <leftvalue>product_key</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
@@ -566,42 +638,14 @@
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>product_name</leftvalue>
+                <leftvalue>orderDet_Key</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>brand_id</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>brand_name</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>category_id</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>category_name</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>model_year</leftvalue>
+                <leftvalue>quantity</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
@@ -615,7 +659,28 @@
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>quantity</leftvalue>
+                <leftvalue>DiscountPerc</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>SubTotal</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>DiscountAmount</leftvalue>
+                <function>IS NULL</function>
+                <rightvalue/>
+              </condition>
+              <condition>
+                <negated>N</negated>
+                <operator>OR</operator>
+                <leftvalue>TotalAmount</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
@@ -655,7 +720,7 @@
     <auth_mech/>
     <auth_kerberos>N</auth_kerberos>
     <mongo_db>BikeStores</mongo_db>
-    <mongo_collection>products</mongo_collection>
+    <mongo_collection>orders</mongo_collection>
     <batch_insert_size>100</batch_insert_size>
     <connect_timeout/>
     <socket_timeout/>
@@ -673,82 +738,102 @@
     <write_retry_delay>1</write_retry_delay>
     <mongo_fields>
       <mongo_field>
-        <incoming_field_name>product_key</incoming_field_name>
+        <incoming_field_name>_id</incoming_field_name>
         <mongo_doc_path>_id</mongo_doc_path>
         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>product_name</incoming_field_name>
+        <incoming_field_name>order_id</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>brand_id</incoming_field_name>
+        <incoming_field_name>order_date_key</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>brand_name</incoming_field_name>
+        <incoming_field_name>required_date_key</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>category_id</incoming_field_name>
+        <incoming_field_name>shipped_date_key</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>category_name</incoming_field_name>
+        <incoming_field_name>customer_key</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>model_year</incoming_field_name>
+        <incoming_field_name>store_key</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>list_price</incoming_field_name>
+        <incoming_field_name>staff_key</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>product_key</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>orderDet_Key</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -758,7 +843,57 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>list_price</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>DiscountPerc</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>SubTotal</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>DiscountAmount</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
+        <json_field>N</json_field>
+        <allow_null>N</allow_null>
+      </mongo_field>
+      <mongo_field>
+        <incoming_field_name>TotalAmount</incoming_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
+        <update_match_field>N</update_match_field>
+        <modifier_update_operation>N/A</modifier_update_operation>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -778,7 +913,7 @@
     </GUI>
   </step>
   <step>
-    <name>Tabela de Produtos</name>
+    <name>Tabela de Encomendas</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -789,16 +924,23 @@
       <schema_name/>
     </partitioning>
     <connection>BikeStoresDM</connection>
-    <sql>SELECT [product_key]
-      ,[product_name]
-      ,[brand_id]
-      ,[brand_name]
-      ,[category_id]
-      ,[category_name]
-      ,[model_year]
-      ,[list_price]
+    <sql>SELECT [_id]
+      ,[order_id]
+      ,[order_date_key]
+      ,[required_date_key]
+      ,[shipped_date_key]
+      ,[customer_key]
+      ,[store_key]
+      ,[staff_key]
+      ,[product_key]
+      ,[orderDet_Key]
       ,[quantity]
-FROM [BikeStoresDM].[dbo].[dim_product]</sql>
+      ,[list_price]
+      ,[DiscountPerc]
+      ,[SubTotal]
+      ,[DiscountAmount]
+      ,[TotalAmount]
+  FROM [BikeStoresDM].[dbo].[ft_order]</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -809,10 +951,194 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>product_key</name>
-        <length>15</length>
+        <name>_id</name>
+        <length>9</length>
         <precision>0</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
+        <comments>_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>order_id</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>order_id</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>order_date_key</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>order_date_key</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>required_date_key</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>required_date_key</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>shipped_date_key</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>shipped_date_key</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>customer_key</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>customer_key</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>store_key</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>store_key</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>staff_key</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>staff_key</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>product_key</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
         <comments>product_key</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -830,36 +1156,13 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>product_name</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>product_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>brand_id</name>
-        <length>9</length>
+        <name>orderDet_Key</name>
+        <length>15</length>
         <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>brand_id</comments>
+        <origin>Tabela de Produtos</origin>
+        <comments>orderDet_Key</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -876,82 +1179,13 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>brand_name</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>brand_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>category_id</name>
+        <name>quantity</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>category_id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>category_name</name>
-        <length>255</length>
-        <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>category_name</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>model_year</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>model_year</comments>
+        <origin>Tabela de Produtos</origin>
+        <comments>quantity</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -973,7 +1207,7 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>list_price</name>
         <length>10</length>
         <precision>2</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>list_price</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -991,16 +1225,85 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Integer</type>
+        <type>Number</type>
         <storagetype>normal</storagetype>
-        <name>quantity</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>quantity</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
+        <name>DiscountPerc</name>
+        <length>4</length>
+        <precision>2</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>DiscountPerc</comments>
+        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>SubTotal</name>
+        <length>21</length>
+        <precision>2</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>SubTotal</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>DiscountAmount</name>
+        <length>26</length>
+        <precision>4</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>DiscountAmount</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>BigNumber</type>
+        <storagetype>normal</storagetype>
+        <name>TotalAmount</name>
+        <length>27</length>
+        <precision>4</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>TotalAmount</comments>
+        <conversion_Mask>######0.0###################;-######0.0###################</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol/>
         <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>

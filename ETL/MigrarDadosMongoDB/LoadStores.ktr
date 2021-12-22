@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>LoadProdutos</name>
+    <name>LoadStores</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -502,7 +502,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Tabela de Produtos</from>
+      <from>Tabela de Stores</from>
       <to>Filtar nulls</to>
       <enabled>Y</enabled>
     </hop>
@@ -559,63 +559,56 @@
             <conditions>
               <condition>
                 <negated>N</negated>
-                <leftvalue>product_key</leftvalue>
+                <leftvalue>store_key</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>product_name</leftvalue>
+                <leftvalue>store_name</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>brand_id</leftvalue>
+                <leftvalue>phone</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>brand_name</leftvalue>
+                <leftvalue>email</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>category_id</leftvalue>
+                <leftvalue>street</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>category_name</leftvalue>
+                <leftvalue>city</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>model_year</leftvalue>
+                <leftvalue>state</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>list_price</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>quantity</leftvalue>
+                <leftvalue>zip_code</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
@@ -655,7 +648,7 @@
     <auth_mech/>
     <auth_kerberos>N</auth_kerberos>
     <mongo_db>BikeStores</mongo_db>
-    <mongo_collection>products</mongo_collection>
+    <mongo_collection>stores</mongo_collection>
     <batch_insert_size>100</batch_insert_size>
     <connect_timeout/>
     <socket_timeout/>
@@ -673,7 +666,7 @@
     <write_retry_delay>1</write_retry_delay>
     <mongo_fields>
       <mongo_field>
-        <incoming_field_name>product_key</incoming_field_name>
+        <incoming_field_name>store_key</incoming_field_name>
         <mongo_doc_path>_id</mongo_doc_path>
         <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -683,7 +676,7 @@
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>product_name</incoming_field_name>
+        <incoming_field_name>store_name</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -693,7 +686,7 @@
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>brand_id</incoming_field_name>
+        <incoming_field_name>phone</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -703,7 +696,7 @@
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>brand_name</incoming_field_name>
+        <incoming_field_name>email</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -713,7 +706,7 @@
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>category_id</incoming_field_name>
+        <incoming_field_name>street</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -723,7 +716,7 @@
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>category_name</incoming_field_name>
+        <incoming_field_name>city</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -733,7 +726,7 @@
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>model_year</incoming_field_name>
+        <incoming_field_name>state</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -743,17 +736,7 @@
         <allow_null>N</allow_null>
       </mongo_field>
       <mongo_field>
-        <incoming_field_name>list_price</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>quantity</incoming_field_name>
+        <incoming_field_name>zip_code</incoming_field_name>
         <mongo_doc_path/>
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
@@ -778,7 +761,7 @@
     </GUI>
   </step>
   <step>
-    <name>Tabela de Produtos</name>
+    <name>Tabela de Stores</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -789,16 +772,15 @@
       <schema_name/>
     </partitioning>
     <connection>BikeStoresDM</connection>
-    <sql>SELECT [product_key]
-      ,[product_name]
-      ,[brand_id]
-      ,[brand_name]
-      ,[category_id]
-      ,[category_name]
-      ,[model_year]
-      ,[list_price]
-      ,[quantity]
-FROM [BikeStoresDM].[dbo].[dim_product]</sql>
+    <sql>SELECT [store_key]
+      ,[store_name]
+      ,[phone]
+      ,[email]
+      ,[street]
+      ,[city]
+      ,[state]
+      ,[zip_code]
+  FROM [BikeStoresDM].[dbo].[dim_store]</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -809,11 +791,11 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
       <value-meta>
         <type>Integer</type>
         <storagetype>normal</storagetype>
-        <name>product_key</name>
+        <name>store_key</name>
         <length>15</length>
         <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>product_key</comments>
+        <origin>Tabela de Produtos</origin>
+        <comments>store_key</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -832,35 +814,12 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>product_name</name>
+        <name>store_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>product_name</comments>
+        <origin>Tabela de Produtos</origin>
+        <comments>store_name</comments>
         <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>brand_id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>brand_id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -878,35 +837,12 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>brand_name</name>
-        <length>255</length>
+        <name>phone</name>
+        <length>25</length>
         <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>brand_name</comments>
+        <origin>Tabela de Produtos</origin>
+        <comments>phone</comments>
         <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>category_id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>category_id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -924,11 +860,11 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
       <value-meta>
         <type>String</type>
         <storagetype>normal</storagetype>
-        <name>category_name</name>
+        <name>email</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>category_name</comments>
+        <origin>Tabela de Produtos</origin>
+        <comments>email</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -945,14 +881,14 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Integer</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>model_year</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>model_year</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
+        <name>street</name>
+        <length>255</length>
+        <precision>-1</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>street</comments>
+        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -968,14 +904,37 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Number</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>list_price</name>
+        <name>city</name>
+        <length>255</length>
+        <precision>-1</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>city</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>state</name>
         <length>10</length>
-        <precision>2</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>list_price</comments>
-        <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
+        <precision>-1</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>state</comments>
+        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -991,14 +950,14 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
       <value-meta>
-        <type>Integer</type>
+        <type>String</type>
         <storagetype>normal</storagetype>
-        <name>quantity</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>quantity</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
+        <name>zip_code</name>
+        <length>5</length>
+        <precision>-1</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>zip_code</comments>
+        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>

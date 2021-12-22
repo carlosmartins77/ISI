@@ -1,0 +1,6 @@
+No MongoDB Output > Mongo document fields tive que atribuir o customer_key ao _id para prevernir duplicados
+
+Para apagar dados de uma coleção executamos
+showdbs -> Encontrar base de dados
+Use BikeStores -> Selecionar a base de dados
+db.getCollection('customers').deleteMany({}) -> Selecionar a coleçao customers e apagar tudo
