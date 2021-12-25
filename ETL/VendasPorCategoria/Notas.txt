@@ -1,3 +1,5 @@
 Para este ponto fiz uma query que contava quantas vezes é que cada categoria foi encomendada.
 Utilizei um filtro para ignorar os valores null e mandar os nao null para um ficheiro XML.
 Explorei a tecnologia XLS, para tal importei um template da google e adaptei-o às minhas necessidades.
+
+${Internal.Entry.Current.Directory}/

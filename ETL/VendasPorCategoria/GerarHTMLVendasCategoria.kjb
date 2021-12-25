@@ -353,9 +353,9 @@
       <description/>
       <type>XSLT</type>
       <attributes/>
-      <xmlfilename>C:\Users\CARLOS\Documents\GitHub\ISI\ETL\QuantidadePorCategoria\QuantidadePorCategoria.xml</xmlfilename>
-      <xslfilename>C:\Users\CARLOS\Documents\GitHub\ISI\ETL\QuantidadePorCategoria\xslPieChart.xsl</xslfilename>
-      <outputfilename>C:\Users\CARLOS\Documents\GitHub\ISI\ETL\QuantidadePorCategoria\QuantidadeCategoria.html</outputfilename>
+      <xmlfilename>${Internal.Entry.Current.Directory}/QuantidadePorCategoria.xml</xmlfilename>
+      <xslfilename>${Internal.Entry.Current.Directory}/xslPieChart.xsl</xslfilename>
+      <outputfilename>${Internal.Entry.Current.Directory}/QuantidadeCategoria.html</outputfilename>
       <iffileexists>1</iffileexists>
       <addfiletoresult>N</addfiletoresult>
       <filenamesfromprevious>N</filenamesfromprevious>

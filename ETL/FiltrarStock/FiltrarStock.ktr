@@ -532,50 +532,6 @@
     </hop>
   </order>
   <step>
-    <name>Filter Medium-Low Stock</name>
-    <type>FilterRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <send_true_to>JSON Medium Stock</send_true_to>
-    <send_false_to>JSON Low Stock</send_false_to>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>quantity</leftvalue>
-        <function>&gt;</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Integer</type>
-          <text>5</text>
-          <length>-1</length>
-          <precision>0</precision>
-          <isnull>N</isnull>
-          <mask>####0;-####0</mask>
-        </value>
-      </condition>
-    </compare>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>688</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Filter Good stock</name>
     <type>FilterRows</type>
     <description/>
@@ -620,6 +576,50 @@
     </GUI>
   </step>
   <step>
+    <name>Filter Medium-Low Stock</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>JSON Medium Stock</send_true_to>
+    <send_false_to>JSON Low Stock</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>quantity</leftvalue>
+        <function>&gt;</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>5</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>JSON Good Stock</name>
     <type>JsonOutput</type>
     <description/>
@@ -638,7 +638,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\CARLOS\Documents\GitHub\ISI\ETL\FiltrarStock\GoodStock</name>
+      <name>${Internal.Entry.Current.Directory}/GoodStock</name>
       <extention>js</extention>
       <append>N</append>
       <split>N</split>
@@ -694,80 +694,6 @@
     </GUI>
   </step>
   <step>
-    <name>JSON Medium-Low</name>
-    <type>JsonOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <outputValue>outputValue</outputValue>
-    <jsonBloc>Produto</jsonBloc>
-    <nrRowsInBloc>1000</nrRowsInBloc>
-    <operation_type>writetofile</operation_type>
-    <compatibility_mode>N</compatibility_mode>
-    <encoding>UTF-8</encoding>
-    <addtoresult>N</addtoresult>
-    <file>
-      <name>C:\Users\CARLOS\Documents\GitHub\ISI\ETL\FiltrarStock\MediumLowStock</name>
-      <extention>js</extention>
-      <append>N</append>
-      <split>N</split>
-      <haspartno>N</haspartno>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <create_parent_folder>N</create_parent_folder>
-      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
-      <servlet_output>N</servlet_output>
-    </file>
-    <fields>
-      <field>
-        <name>product_key</name>
-        <element>product_key</element>
-      </field>
-      <field>
-        <name>product_name</name>
-        <element>product_name</element>
-      </field>
-      <field>
-        <name>brand_name</name>
-        <element>brand_name</element>
-      </field>
-      <field>
-        <name>category_name</name>
-        <element>category_name</element>
-      </field>
-      <field>
-        <name>model_year</name>
-        <element>model_year</element>
-      </field>
-      <field>
-        <name>list_price</name>
-        <element>list_price</element>
-      </field>
-      <field>
-        <name>quantity</name>
-        <element>quantity</element>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>512</xloc>
-      <yloc>256</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>JSON Low Stock</name>
     <type>JsonOutput</type>
     <description/>
@@ -786,7 +712,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\CARLOS\Documents\GitHub\ISI\ETL\FiltrarStock\LowStock</name>
+      <name>${Internal.Entry.Current.Directory}/LowStock</name>
       <extention>js</extention>
       <append>N</append>
       <split>N</split>
@@ -860,7 +786,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\CARLOS\Documents\GitHub\ISI\ETL\FiltrarStock\MediumStock</name>
+      <name>${Internal.Entry.Current.Directory}/MediumStock</name>
       <extention>js</extention>
       <append>N</append>
       <split>N</split>
@@ -911,6 +837,80 @@
     </remotesteps>
     <GUI>
       <xloc>1040</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>JSON Medium-Low</name>
+    <type>JsonOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <outputValue>outputValue</outputValue>
+    <jsonBloc>Produto</jsonBloc>
+    <nrRowsInBloc>1000</nrRowsInBloc>
+    <operation_type>writetofile</operation_type>
+    <compatibility_mode>N</compatibility_mode>
+    <encoding>UTF-8</encoding>
+    <addtoresult>N</addtoresult>
+    <file>
+      <name>${Internal.Entry.Current.Directory}/MediumLowStock</name>
+      <extention>js</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <create_parent_folder>N</create_parent_folder>
+      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
+      <servlet_output>N</servlet_output>
+    </file>
+    <fields>
+      <field>
+        <name>product_key</name>
+        <element>product_key</element>
+      </field>
+      <field>
+        <name>product_name</name>
+        <element>product_name</element>
+      </field>
+      <field>
+        <name>brand_name</name>
+        <element>brand_name</element>
+      </field>
+      <field>
+        <name>category_name</name>
+        <element>category_name</element>
+      </field>
+      <field>
+        <name>model_year</name>
+        <element>model_year</element>
+      </field>
+      <field>
+        <name>list_price</name>
+        <element>list_price</element>
+      </field>
+      <field>
+        <name>quantity</name>
+        <element>quantity</element>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
       <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>

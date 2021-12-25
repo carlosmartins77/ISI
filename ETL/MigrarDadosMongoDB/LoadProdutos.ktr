@@ -497,13 +497,13 @@
   </connection>
   <order>
     <hop>
-      <from>Filtar nulls</from>
-      <to>Dummy (do nothing)</to>
+      <from>Tabela de Produtos</from>
+      <to>Filtar nulls</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Tabela de Produtos</from>
-      <to>Filtar nulls</to>
+      <from>Filtar nulls</from>
+      <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -532,8 +532,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>352</yloc>
+      <xloc>704</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -573,21 +573,7 @@
               <condition>
                 <negated>N</negated>
                 <operator>OR</operator>
-                <leftvalue>brand_id</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
                 <leftvalue>brand_name</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>category_id</leftvalue>
                 <function>IS NULL</function>
                 <rightvalue/>
               </condition>
@@ -633,8 +619,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>256</yloc>
+      <xloc>384</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -674,11 +660,11 @@
     <mongo_fields>
       <mongo_field>
         <incoming_field_name>product_key</incoming_field_name>
-        <mongo_doc_path>_id</mongo_doc_path>
-        <use_incoming_field_name_as_mongo_field_name>N</use_incoming_field_name_as_mongo_field_name>
+        <mongo_doc_path/>
+        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -688,17 +674,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>brand_id</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -708,17 +684,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>category_id</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -728,7 +694,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -738,7 +704,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -748,7 +714,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -758,7 +724,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy>Insert&amp;Update</modifier_policy>
+        <modifier_policy/>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -772,8 +738,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>256</yloc>
+      <xloc>704</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -781,7 +747,7 @@
     <name>Tabela de Produtos</name>
     <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -789,16 +755,16 @@
       <schema_name/>
     </partitioning>
     <connection>BikeStoresDM</connection>
-    <sql>SELECT [product_key]
+    <sql>
+SELECT [product_key]
+      ,[SKU]
       ,[product_name]
-      ,[brand_id]
       ,[brand_name]
-      ,[category_id]
       ,[category_name]
       ,[model_year]
       ,[list_price]
       ,[quantity]
-FROM [BikeStoresDM].[dbo].[dim_product]</sql>
+  FROM [BikeStoresDM].[dbo].[dim_product]</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -812,9 +778,32 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>product_key</name>
         <length>15</length>
         <precision>0</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>product_key</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>pt_PT</date_format_locale>
+        <date_format_timezone>Europe/London</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>SKU</name>
+        <length>-1</length>
+        <precision>0</precision>
+        <origin>Tabela de Produtos</origin>
+        <comments>SKU</comments>
+        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -835,32 +824,9 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>product_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>product_name</comments>
         <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>brand_id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>brand_id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -881,32 +847,9 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>brand_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>brand_name</comments>
         <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>Integer</type>
-        <storagetype>normal</storagetype>
-        <name>category_id</name>
-        <length>9</length>
-        <precision>0</precision>
-        <origin>Lista de Produtos</origin>
-        <comments>category_id</comments>
-        <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -927,7 +870,7 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>category_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>category_name</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -950,7 +893,7 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>model_year</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>model_year</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -973,7 +916,7 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>list_price</name>
         <length>10</length>
         <precision>2</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>list_price</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -996,7 +939,7 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
         <name>quantity</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>Lista de Produtos</origin>
+        <origin>Tabela de Produtos</origin>
         <comments>quantity</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -1023,8 +966,8 @@ FROM [BikeStoresDM].[dbo].[dim_product]</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>256</yloc>
+      <xloc>160</xloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
