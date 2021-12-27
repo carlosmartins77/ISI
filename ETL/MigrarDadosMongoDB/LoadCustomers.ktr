@@ -436,10 +436,10 @@
   </info>
   <notepads>
     <notepad>
-      <note>Atribuir o customer_key ao _id para prevernir duplicados</note>
+      <note>Truncate para prevernir duplicados</note>
       <xloc>560</xloc>
       <yloc>144</yloc>
-      <width>385</width>
+      <width>241</width>
       <heigth>30</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
@@ -671,7 +671,7 @@
     <write_concern/>
     <w_timeout/>
     <journaled_writes>N</journaled_writes>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <update>N</update>
     <upsert>N</upsert>
     <multi>N</multi>

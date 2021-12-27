@@ -1,7 +1,7 @@
 const express = require('express'); // Para usar o pacote express neste ficheiro
 const app = express(); // Executar o pacote
 const mongoose = require('mongoose'); // Pacote para aceder ao MongoDB
-mongoose.pluralize(null); // Sem isto, o mongoose acrescenta um s ao fim da coleção o que não quero, se não cria a coleçao staffs em vez de adicionar em staff
+//mongoose.pluralize(null); // Sem isto, o mongoose acrescenta um s ao fim da coleção o que não quero, se não cria a coleçao produtos em vez de adicionar em produto
 const bodyparser = require('body-parser');
 
 require('dotenv/config'); // Pacote de encriptação da connection string 
@@ -10,8 +10,8 @@ require('dotenv/config'); // Pacote de encriptação da connection string
 app.use(bodyparser.json());
 
 // Importar Rotas
-const StaffRoute = require('./Rotas/staff');
-app.use('/staff', StaffRoute); 
+const ProductRoute = require('./Rotas/product');
+app.use('/product', ProductRoute); 
 
 // Conectar à base de dados 
 mongoose.connect(process.env.DB_CONNECTION,  // Para encriptar a connection string

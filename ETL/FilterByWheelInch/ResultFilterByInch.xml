@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Bikes>
+<Bike><_id>61c8730805ce5f6d8dc94dc1</_id> <category_name>Cruisers Bicycles</category_name> <quantity>8</quantity> <model_year>2016</model_year> <brand_name>Electra</brand_name> <list_price>269,99</list_price> <product_name>Electra Girl's Hawaii 1 (16-inch) - 2015/2016</product_name></Bike>
+<Bike><_id>61c8730805ce5f6d8dc94dc9</_id> <category_name>Children Bicycles</category_name> <quantity>29</quantity> <model_year>2016</model_year> <brand_name>Electra</brand_name> <list_price>269,99</list_price> <product_name>Electra Girl's Hawaii 1 (16-inch) - 2015/2016</product_name></Bike>
+<Bike><_id>61c8730805ce5f6d8dc94ecd</_id> <category_name>Children Bicycles</category_name> <quantity>6</quantity> <model_year>2018</model_year> <brand_name>Electra</brand_name> <list_price>279,99</list_price> <product_name>Electra Cyclosaurus 1 (16-inch) - Boy's - 2018</product_name></Bike>
+<Bike><_id>61c8730805ce5f6d8dc94ed0</_id> <category_name>Children Bicycles</category_name> <quantity>20</quantity> <model_year>2018</model_year> <brand_name>Electra</brand_name> <list_price>279,99</list_price> <product_name>Electra Soft Serve 1 (16-inch) - Girl's - 2018</product_name></Bike>
+<Bike><_id>61c8730805ce5f6d8dc94ed2</_id> <category_name>Children Bicycles</category_name> <quantity>2</quantity> <model_year>2018</model_year> <brand_name>Electra</brand_name> <list_price>279,99</list_price> <product_name>Electra Straight 8 1 (16-inch) - Boy's - 2018</product_name></Bike>
+<Bike><_id>61c8730805ce5f6d8dc94edd</_id> <category_name>Children Bicycles</category_name> <quantity>26</quantity> <model_year>2018</model_year> <brand_name>Electra</brand_name> <list_price>279,99</list_price> <product_name>Electra Water Lily 1 (16-inch) - Girl's - 2018</product_name></Bike>
+</Bikes>

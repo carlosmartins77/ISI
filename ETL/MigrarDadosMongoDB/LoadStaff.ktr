@@ -532,8 +532,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>352</yloc>
+      <xloc>720</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -612,8 +612,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>256</yloc>
+      <xloc>416</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -643,7 +643,7 @@
     <write_concern/>
     <w_timeout/>
     <journaled_writes>N</journaled_writes>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <update>N</update>
     <upsert>N</upsert>
     <multi>N</multi>
@@ -721,8 +721,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>768</xloc>
-      <yloc>256</yloc>
+      <xloc>720</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -969,8 +969,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>256</yloc>
+      <xloc>192</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

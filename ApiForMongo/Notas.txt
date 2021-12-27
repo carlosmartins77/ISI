@@ -3,3 +3,6 @@ No orderid em vez de pedir pelo ID do mongo peço pelo orderId (Funcao igual a p
 Temos que manter tanto os Ids base do sql como criar os ObjectId do mongo. 
 A unica opção que tenho é criar produtos sem os Id base do sql e nao permitir procura por Id porque so consigo procurar por object id.
 Porque nao substituir o id base do sql por object ids? Porque na tabela das encomendas, ele recebe vários ids, tal como staff_key, store_key etc.. e ao substituirmos o staff_key, etc por objectId vamos perder essa informaçao.
+
+
+Porque PATCH e nao PUT -> Patch request says that we would only send the data that we need to modify without modifying or effecting other parts of the data.

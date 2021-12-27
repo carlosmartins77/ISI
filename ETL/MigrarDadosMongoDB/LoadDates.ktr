@@ -528,7 +528,7 @@
     <write_concern/>
     <w_timeout/>
     <journaled_writes>N</journaled_writes>
-    <truncate>N</truncate>
+    <truncate>Y</truncate>
     <update>N</update>
     <upsert>N</upsert>
     <multi>N</multi>
@@ -542,7 +542,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -552,7 +552,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -562,7 +562,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -572,7 +572,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -582,7 +582,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -592,7 +592,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -602,7 +602,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -612,7 +612,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -622,7 +622,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -632,7 +632,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -642,7 +642,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -652,7 +652,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -662,7 +662,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -672,7 +672,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -682,7 +682,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -692,7 +692,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -702,7 +702,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -712,7 +712,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -722,7 +722,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -732,7 +732,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -742,7 +742,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -752,7 +752,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -762,7 +762,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -772,7 +772,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>
@@ -782,7 +782,7 @@
         <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
         <update_match_field>N</update_match_field>
         <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
+        <modifier_policy>Insert&amp;Update</modifier_policy>
         <json_field>N</json_field>
         <allow_null>N</allow_null>
       </mongo_field>

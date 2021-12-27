@@ -1,4 +1,4 @@
-No MongoDB Output > Mongo document fields tive que atribuir o customer_key ao _id para prevernir duplicados
+No MongoDB Output > Para prevenir duplicados selecionamos a opçao Truncate Table
 
 Para apagar dados de uma coleção executamos
 showdbs -> Encontrar base de dados

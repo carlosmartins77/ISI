@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>LoadProdutos</name>
+    <name>FiltrarStockBom</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,9 +428,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2021/12/22 10:16:37.948</created_date>
+    <created_date>2021/12/21 16:24:41.644</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2021/12/22 10:16:37.948</modified_date>
+    <modified_date>2021/12/21 16:24:41.644</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -497,48 +497,23 @@
   </connection>
   <order>
     <hop>
-      <from>Tabela de Produtos</from>
-      <to>Filtar nulls</to>
+      <from>Table input</from>
+      <to>Filter Good stock</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filtar nulls</from>
-      <to>Dummy (do nothing)</to>
+      <from>Filter Good stock</from>
+      <to>Excel Good Stock</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filtar nulls</from>
-      <to>MongoDB output</to>
+      <from>Filter Good stock</from>
+      <to>JSON Medium-Low</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Dummy (do nothing)</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Filtar nulls</name>
+    <name>Filter Good stock</name>
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
@@ -548,66 +523,23 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Dummy (do nothing)</send_true_to>
-    <send_false_to>MongoDB output</send_false_to>
+    <send_true_to>Excel Good Stock</send_true_to>
+    <send_false_to>JSON Medium-Low</send_false_to>
     <compare>
       <condition>
         <negated>N</negated>
-        <conditions>
-          <condition>
-            <negated>N</negated>
-            <conditions>
-              <condition>
-                <negated>N</negated>
-                <leftvalue>product_key</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>product_name</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>brand_name</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>category_name</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>model_year</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>list_price</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-              <condition>
-                <negated>N</negated>
-                <operator>OR</operator>
-                <leftvalue>quantity</leftvalue>
-                <function>IS NULL</function>
-                <rightvalue/>
-              </condition>
-            </conditions>
-          </condition>
-        </conditions>
+        <leftvalue>quantity</leftvalue>
+        <function>&gt;=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Integer</type>
+          <text>15</text>
+          <length>-1</length>
+          <precision>0</precision>
+          <isnull>N</isnull>
+          <mask>####0;-####0</mask>
+        </value>
       </condition>
     </compare>
     <attributes/>
@@ -619,14 +551,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>208</yloc>
+      <xloc>320</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>MongoDB output</name>
-    <type>MongoDbOutput</type>
+    <name>Table input</name>
+    <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -635,136 +567,15 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <mongo_host>localhost</mongo_host>
-    <mongo_port>27017</mongo_port>
-    <use_all_replica_members>N</use_all_replica_members>
-    <auth_mech/>
-    <auth_kerberos>N</auth_kerberos>
-    <mongo_db>BikeStores</mongo_db>
-    <mongo_collection>products</mongo_collection>
-    <batch_insert_size>100</batch_insert_size>
-    <connect_timeout/>
-    <socket_timeout/>
-    <use_ssl_socket_factory>N</use_ssl_socket_factory>
-    <read_preference>primary</read_preference>
-    <write_concern/>
-    <w_timeout/>
-    <journaled_writes>N</journaled_writes>
-    <truncate>Y</truncate>
-    <update>N</update>
-    <upsert>N</upsert>
-    <multi>N</multi>
-    <modifier_update>N</modifier_update>
-    <write_retries>2</write_retries>
-    <write_retry_delay>1</write_retry_delay>
-    <mongo_fields>
-      <mongo_field>
-        <incoming_field_name>product_key</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>product_name</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>brand_name</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>category_name</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>model_year</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>list_price</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-      <mongo_field>
-        <incoming_field_name>quantity</incoming_field_name>
-        <mongo_doc_path/>
-        <use_incoming_field_name_as_mongo_field_name>Y</use_incoming_field_name_as_mongo_field_name>
-        <update_match_field>N</update_match_field>
-        <modifier_update_operation>N/A</modifier_update_operation>
-        <modifier_policy/>
-        <json_field>N</json_field>
-        <allow_null>N</allow_null>
-      </mongo_field>
-    </mongo_fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Tabela de Produtos</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
     <connection>BikeStoresDM</connection>
-    <sql>
-SELECT [product_key]
-      ,[SKU]
+    <sql>SELECT [product_key]	
       ,[product_name]
       ,[brand_name]
       ,[category_name]
       ,[model_year]
       ,[list_price]
       ,[quantity]
-  FROM [BikeStoresDM].[dbo].[dim_product]</sql>
+FROM [BikeStoresDM].[dbo].[dim_product]</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -778,32 +589,9 @@ SELECT [product_key]
         <name>product_key</name>
         <length>15</length>
         <precision>0</precision>
-        <origin>Tabela de Produtos</origin>
+        <origin>Table input</origin>
         <comments>product_key</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>pt_PT</date_format_locale>
-        <date_format_timezone>Europe/London</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>SKU</name>
-        <length>-1</length>
-        <precision>-1</precision>
-        <origin>Tabela de Produtos</origin>
-        <comments>SKU</comments>
-        <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
         <currency_symbol/>
@@ -824,7 +612,7 @@ SELECT [product_key]
         <name>product_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Tabela de Produtos</origin>
+        <origin>Table input</origin>
         <comments>product_name</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -847,7 +635,7 @@ SELECT [product_key]
         <name>brand_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Tabela de Produtos</origin>
+        <origin>Table input</origin>
         <comments>brand_name</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -870,7 +658,7 @@ SELECT [product_key]
         <name>category_name</name>
         <length>255</length>
         <precision>-1</precision>
-        <origin>Tabela de Produtos</origin>
+        <origin>Table input</origin>
         <comments>category_name</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
@@ -893,7 +681,7 @@ SELECT [product_key]
         <name>model_year</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>Tabela de Produtos</origin>
+        <origin>Table input</origin>
         <comments>model_year</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -916,7 +704,7 @@ SELECT [product_key]
         <name>list_price</name>
         <length>10</length>
         <precision>2</precision>
-        <origin>Tabela de Produtos</origin>
+        <origin>Table input</origin>
         <comments>list_price</comments>
         <conversion_Mask>####0.0#########;-####0.0#########</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -939,7 +727,7 @@ SELECT [product_key]
         <name>quantity</name>
         <length>9</length>
         <precision>0</precision>
-        <origin>Tabela de Produtos</origin>
+        <origin>Table input</origin>
         <comments>quantity</comments>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>,</decimal_symbol>
@@ -966,8 +754,231 @@ SELECT [product_key]
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
-      <yloc>208</yloc>
+      <xloc>112</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Excel Good Stock</name>
+    <type>TypeExitExcelWriterStep</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>N</header>
+    <footer>N</footer>
+    <makeSheetActive>Y</makeSheetActive>
+    <startingCell>B4</startingCell>
+    <appendOmitHeader>N</appendOmitHeader>
+    <appendOffset>0</appendOffset>
+    <appendEmpty>0</appendEmpty>
+    <rowWritingMethod>push</rowWritingMethod>
+    <forceFormulaRecalculation>N</forceFormulaRecalculation>
+    <leaveExistingStylesUnchanged>N</leaveExistingStylesUnchanged>
+    <appendLines>N</appendLines>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <file>
+      <name>${Internal.Entry.Current.Directory}/BikeStock</name>
+      <extention>xls</extention>
+      <do_not_open_newfile_init>N</do_not_open_newfile_init>
+      <split>N</split>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <SpecifyFormat>N</SpecifyFormat>
+      <date_time_format/>
+      <sheetname>Good Stock</sheetname>
+      <autosizecolums>N</autosizecolums>
+      <stream_data>N</stream_data>
+      <protect_sheet>N</protect_sheet>
+      <password>Encrypted </password>
+      <protected_by/>
+      <splitevery>0</splitevery>
+      <if_file_exists>new</if_file_exists>
+      <if_sheet_exists>new</if_sheet_exists>
+    </file>
+    <template>
+      <enabled>Y</enabled>
+      <sheet_enabled>Y</sheet_enabled>
+      <filename>${Internal.Entry.Current.Directory}/Template.xls</filename>
+      <sheetname>Template</sheetname>
+      <hidden>Y</hidden>
+    </template>
+    <fields>
+      <field>
+        <name>product_key</name>
+        <type>Integer</type>
+        <format/>
+        <title>product_key</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>product_name</name>
+        <type>String</type>
+        <format/>
+        <title>product_name</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>brand_name</name>
+        <type>String</type>
+        <format/>
+        <title>brand_name</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>category_name</name>
+        <type>String</type>
+        <format/>
+        <title>category_name</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>model_year</name>
+        <type>Integer</type>
+        <format/>
+        <title>model_year</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>list_price</name>
+        <type>Number</type>
+        <format>0.00</format>
+        <title>list_price</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+      <field>
+        <name>quantity</name>
+        <type>Integer</type>
+        <format/>
+        <title>quantity</title>
+        <titleStyleCell/>
+        <styleCell/>
+        <commentField/>
+        <commentAuthorField/>
+        <formula>N</formula>
+        <hyperlinkField/>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>JSON Medium-Low</name>
+    <type>JsonOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <outputValue>outputValue</outputValue>
+    <jsonBloc>Produto</jsonBloc>
+    <nrRowsInBloc>1000</nrRowsInBloc>
+    <operation_type>writetofile</operation_type>
+    <compatibility_mode>N</compatibility_mode>
+    <encoding>UTF-8</encoding>
+    <addtoresult>N</addtoresult>
+    <file>
+      <name>${Internal.Entry.Current.Directory}/MediumLowStock</name>
+      <extention>js</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <create_parent_folder>N</create_parent_folder>
+      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
+      <servlet_output>N</servlet_output>
+    </file>
+    <fields>
+      <field>
+        <name>product_key</name>
+        <element>product_key</element>
+      </field>
+      <field>
+        <name>product_name</name>
+        <element>product_name</element>
+      </field>
+      <field>
+        <name>brand_name</name>
+        <element>brand_name</element>
+      </field>
+      <field>
+        <name>category_name</name>
+        <element>category_name</element>
+      </field>
+      <field>
+        <name>model_year</name>
+        <element>model_year</element>
+      </field>
+      <field>
+        <name>list_price</name>
+        <element>list_price</element>
+      </field>
+      <field>
+        <name>quantity</name>
+        <element>quantity</element>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
