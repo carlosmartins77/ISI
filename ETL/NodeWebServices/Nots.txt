@@ -1,0 +1,1 @@
+http://xsltfiddle.liberty-development.net/ncdD7n3 para verificar se o xsl esta em conformidade com o xml e se tem erros de html
