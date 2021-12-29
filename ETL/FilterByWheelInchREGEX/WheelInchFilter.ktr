@@ -430,7 +430,7 @@
     <created_date>2021/12/27 15:47:08.349</created_date>
     <modified_user>-</modified_user>
     <modified_date>2021/12/27 15:47:08.349</modified_date>
-    <key_for_session_key/>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -451,7 +451,56 @@
       <to>XML output</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Filter rows</from>
+      <to>Dummy (do nothing)</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>XML output</send_true_to>
+    <send_false_to>Dummy (do nothing)</send_false_to>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>result</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>Boolean</type>
+          <text>Y</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>496</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>MongoDB input</name>
     <type>MongoDbInput</type>
@@ -485,39 +534,39 @@
     <execute_for_each_row>N</execute_for_each_row>
     <mongo_fields>
       <mongo_field>
-        <field_name>_id</field_name>
+        <field_name>Id</field_name>
         <field_path>$._id</field_path>
         <field_type>String</field_type>
       </mongo_field>
       <mongo_field>
-        <field_name>category_name</field_name>
+        <field_name>Nome</field_name>
+        <field_path>$.product_name</field_path>
+        <field_type>String</field_type>
+      </mongo_field>
+      <mongo_field>
+        <field_name>Categoria</field_name>
         <field_path>$.category_name</field_path>
         <field_type>String</field_type>
       </mongo_field>
       <mongo_field>
-        <field_name>quantity</field_name>
+        <field_name>Quantidade</field_name>
         <field_path>$.quantity</field_path>
         <field_type>Integer</field_type>
       </mongo_field>
       <mongo_field>
-        <field_name>model_year</field_name>
+        <field_name>Ano</field_name>
         <field_path>$.model_year</field_path>
         <field_type>Integer</field_type>
       </mongo_field>
       <mongo_field>
-        <field_name>brand_name</field_name>
+        <field_name>Marca</field_name>
         <field_path>$.brand_name</field_path>
         <field_type>String</field_type>
       </mongo_field>
       <mongo_field>
-        <field_name>list_price</field_name>
+        <field_name>Preço</field_name>
         <field_path>$.list_price</field_path>
         <field_type>Number</field_type>
-      </mongo_field>
-      <mongo_field>
-        <field_name>product_name</field_name>
-        <field_path>$.product_name</field_path>
-        <field_type>String</field_type>
       </mongo_field>
     </mongo_fields>
     <attributes/>
@@ -546,7 +595,7 @@
       <schema_name/>
     </partitioning>
     <script>((.)+(16-Inch)(.*))</script>
-    <matcher>product_name</matcher>
+    <matcher>Nome</matcher>
     <resultfieldname>result</resultfieldname>
     <usevar>N</usevar>
     <allowcapturegroups>N</allowcapturegroups>
@@ -606,8 +655,8 @@
     </file>
     <fields>
       <field>
-        <content_type>Element</content_type>
-        <name>_id</name>
+        <content_type>Attribute</content_type>
+        <name>Id</name>
         <element/>
         <type>String</type>
         <format/>
@@ -620,7 +669,7 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>category_name</name>
+        <name>Nome</name>
         <element/>
         <type>String</type>
         <format/>
@@ -633,7 +682,20 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>quantity</name>
+        <name>Categoria</name>
+        <element/>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <content_type>Element</content_type>
+        <name>Quantidade</name>
         <element/>
         <type>Integer</type>
         <format/>
@@ -646,7 +708,7 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>model_year</name>
+        <name>Ano</name>
         <element/>
         <type>Integer</type>
         <format/>
@@ -659,7 +721,7 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>brand_name</name>
+        <name>Marca</name>
         <element/>
         <type>String</type>
         <format/>
@@ -672,22 +734,9 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>list_price</name>
+        <name>Preço</name>
         <element/>
         <type>Number</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>product_name</name>
-        <element/>
-        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -706,14 +755,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
+      <xloc>656</xloc>
       <yloc>352</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
+    <name>Dummy (do nothing)</name>
+    <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -722,25 +771,6 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>XML output</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>result</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>Boolean</type>
-          <text>Y</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -750,8 +780,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>352</yloc>
+      <xloc>656</xloc>
+      <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
