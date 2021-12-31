@@ -570,7 +570,7 @@
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>80</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -632,7 +632,7 @@
     </remotesteps>
     <GUI>
       <xloc>608</xloc>
-      <yloc>160</yloc>
+      <yloc>208</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -668,9 +668,9 @@
     </file>
     <fields>
       <field>
-        <content_type>Element</content_type>
+        <content_type>Attribute</content_type>
         <name>_id</name>
-        <element/>
+        <element>Id</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -682,21 +682,21 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>product_key</name>
-        <element/>
-        <type>Integer</type>
+        <name>product_name</name>
+        <element>Nome</element>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <length>-1</length>
-        <precision>0</precision>
+        <precision>-1</precision>
       </field>
       <field>
         <content_type>Element</content_type>
         <name>category_name</name>
-        <element/>
+        <element>Categoria</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -709,20 +709,7 @@
       <field>
         <content_type>Element</content_type>
         <name>quantity</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>category_id</name>
-        <element/>
+        <element>Quantidade</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -735,7 +722,7 @@
       <field>
         <content_type>Element</content_type>
         <name>model_year</name>
-        <element/>
+        <element>Ano</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -748,7 +735,7 @@
       <field>
         <content_type>Element</content_type>
         <name>brand_name</name>
-        <element/>
+        <element>Marca</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -761,7 +748,7 @@
       <field>
         <content_type>Element</content_type>
         <name>list_price</name>
-        <element/>
+        <element>Preco</element>
         <type>Number</type>
         <format/>
         <currency/>
@@ -770,32 +757,6 @@
         <nullif/>
         <length>-1</length>
         <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>product_name</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>brand_id</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
       </field>
     </fields>
     <attributes/>
@@ -844,9 +805,9 @@
     </file>
     <fields>
       <field>
-        <content_type>Element</content_type>
+        <content_type>Attribute</content_type>
         <name>_id</name>
-        <element/>
+        <element>Id</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -858,21 +819,21 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>product_key</name>
-        <element/>
-        <type>Integer</type>
+        <name>product_name</name>
+        <element>Nome</element>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <length>-1</length>
-        <precision>0</precision>
+        <precision>-1</precision>
       </field>
       <field>
         <content_type>Element</content_type>
         <name>category_name</name>
-        <element/>
+        <element>Categoria</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -885,20 +846,7 @@
       <field>
         <content_type>Element</content_type>
         <name>quantity</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>category_id</name>
-        <element/>
+        <element>Quantidade</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -911,7 +859,7 @@
       <field>
         <content_type>Element</content_type>
         <name>model_year</name>
-        <element/>
+        <element>Ano</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -924,7 +872,7 @@
       <field>
         <content_type>Element</content_type>
         <name>brand_name</name>
-        <element/>
+        <element>Marca</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -937,7 +885,7 @@
       <field>
         <content_type>Element</content_type>
         <name>list_price</name>
-        <element/>
+        <element>Preco</element>
         <type>Number</type>
         <format/>
         <currency/>
@@ -946,32 +894,6 @@
         <nullif/>
         <length>-1</length>
         <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>product_name</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>brand_id</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
       </field>
     </fields>
     <attributes/>
@@ -1020,9 +942,9 @@
     </file>
     <fields>
       <field>
-        <content_type>Element</content_type>
+        <content_type>Attribute</content_type>
         <name>_id</name>
-        <element/>
+        <element>Id</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1034,21 +956,21 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>product_key</name>
-        <element/>
-        <type>Integer</type>
+        <name>product_name</name>
+        <element>Nome</element>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <length>-1</length>
-        <precision>0</precision>
+        <precision>-1</precision>
       </field>
       <field>
         <content_type>Element</content_type>
         <name>category_name</name>
-        <element/>
+        <element>Categoria</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1061,20 +983,7 @@
       <field>
         <content_type>Element</content_type>
         <name>quantity</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>category_id</name>
-        <element/>
+        <element>Quantidade</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1087,7 +996,7 @@
       <field>
         <content_type>Element</content_type>
         <name>model_year</name>
-        <element/>
+        <element>Ano</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1100,7 +1009,7 @@
       <field>
         <content_type>Element</content_type>
         <name>brand_name</name>
-        <element/>
+        <element>Marca</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1113,7 +1022,7 @@
       <field>
         <content_type>Element</content_type>
         <name>list_price</name>
-        <element/>
+        <element>Preco</element>
         <type>Number</type>
         <format/>
         <currency/>
@@ -1122,32 +1031,6 @@
         <nullif/>
         <length>-1</length>
         <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>product_name</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>brand_id</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
       </field>
     </fields>
     <attributes/>
@@ -1196,9 +1079,9 @@
     </file>
     <fields>
       <field>
-        <content_type>Element</content_type>
+        <content_type>Attribute</content_type>
         <name>_id</name>
-        <element/>
+        <element>Id</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1210,21 +1093,21 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>product_key</name>
-        <element/>
-        <type>Integer</type>
+        <name>product_name</name>
+        <element>Nome</element>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <length>-1</length>
-        <precision>0</precision>
+        <precision>-1</precision>
       </field>
       <field>
         <content_type>Element</content_type>
         <name>category_name</name>
-        <element/>
+        <element>Categoria</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1237,20 +1120,7 @@
       <field>
         <content_type>Element</content_type>
         <name>quantity</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>category_id</name>
-        <element/>
+        <element>Quantidade</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1263,7 +1133,7 @@
       <field>
         <content_type>Element</content_type>
         <name>model_year</name>
-        <element/>
+        <element>Ano</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1276,7 +1146,7 @@
       <field>
         <content_type>Element</content_type>
         <name>brand_name</name>
-        <element/>
+        <element>Marca</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1289,7 +1159,7 @@
       <field>
         <content_type>Element</content_type>
         <name>list_price</name>
-        <element/>
+        <element>Preco</element>
         <type>Number</type>
         <format/>
         <currency/>
@@ -1298,32 +1168,6 @@
         <nullif/>
         <length>-1</length>
         <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>product_name</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>brand_id</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
       </field>
     </fields>
     <attributes/>
@@ -1372,9 +1216,9 @@
     </file>
     <fields>
       <field>
-        <content_type>Element</content_type>
+        <content_type>Attribute</content_type>
         <name>_id</name>
-        <element/>
+        <element>Id</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1386,21 +1230,21 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>product_key</name>
-        <element/>
-        <type>Integer</type>
+        <name>product_name</name>
+        <element>Nome</element>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <length>-1</length>
-        <precision>0</precision>
+        <precision>-1</precision>
       </field>
       <field>
         <content_type>Element</content_type>
         <name>category_name</name>
-        <element/>
+        <element>Categoria</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1413,20 +1257,7 @@
       <field>
         <content_type>Element</content_type>
         <name>quantity</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>category_id</name>
-        <element/>
+        <element>Quantidade</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1439,7 +1270,7 @@
       <field>
         <content_type>Element</content_type>
         <name>model_year</name>
-        <element/>
+        <element>Ano</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1452,7 +1283,7 @@
       <field>
         <content_type>Element</content_type>
         <name>brand_name</name>
-        <element/>
+        <element>Marca</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1465,7 +1296,7 @@
       <field>
         <content_type>Element</content_type>
         <name>list_price</name>
-        <element/>
+        <element>Preco</element>
         <type>Number</type>
         <format/>
         <currency/>
@@ -1474,32 +1305,6 @@
         <nullif/>
         <length>-1</length>
         <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>product_name</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>brand_id</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
       </field>
     </fields>
     <attributes/>
@@ -1547,6 +1352,97 @@
       <splitevery>0</splitevery>
     </file>
     <fields>
+      <field>
+        <content_type>Attribute</content_type>
+        <name>_id</name>
+        <element>Id</element>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <content_type>Element</content_type>
+        <name>product_name</name>
+        <element>Nome</element>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <content_type>Element</content_type>
+        <name>category_name</name>
+        <element>Categoria</element>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <content_type>Element</content_type>
+        <name>quantity</name>
+        <element>Quantidade</element>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <content_type>Element</content_type>
+        <name>model_year</name>
+        <element>Ano</element>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>0</precision>
+      </field>
+      <field>
+        <content_type>Element</content_type>
+        <name>brand_name</name>
+        <element>Marca</element>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <content_type>Element</content_type>
+        <name>list_price</name>
+        <element>Preco</element>
+        <type>Number</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>-1</length>
+        <precision>-1</precision>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1596,7 +1492,7 @@
       <field>
         <content_type>Element</content_type>
         <name>_id</name>
-        <element/>
+        <element>Id</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1608,21 +1504,21 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>product_key</name>
-        <element/>
-        <type>Integer</type>
+        <name>product_name</name>
+        <element>Nome</element>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
         <group/>
         <nullif/>
         <length>-1</length>
-        <precision>0</precision>
+        <precision>-1</precision>
       </field>
       <field>
         <content_type>Element</content_type>
         <name>category_name</name>
-        <element/>
+        <element>Categoria</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1634,34 +1530,8 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>quantity</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>category_id</name>
-        <element/>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
         <name>model_year</name>
-        <element/>
+        <element>Ano</element>
         <type>Integer</type>
         <format/>
         <currency/>
@@ -1674,7 +1544,7 @@
       <field>
         <content_type>Element</content_type>
         <name>brand_name</name>
-        <element/>
+        <element>Marca</element>
         <type>String</type>
         <format/>
         <currency/>
@@ -1687,7 +1557,7 @@
       <field>
         <content_type>Element</content_type>
         <name>list_price</name>
-        <element/>
+        <element>Preco</element>
         <type>Number</type>
         <format/>
         <currency/>
@@ -1699,21 +1569,8 @@
       </field>
       <field>
         <content_type>Element</content_type>
-        <name>product_name</name>
-        <element/>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <content_type>Element</content_type>
-        <name>brand_id</name>
-        <element/>
+        <name>quantity</name>
+        <element>Quantidade</element>
         <type>Integer</type>
         <format/>
         <currency/>

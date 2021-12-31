@@ -6,35 +6,34 @@ const Product = require('../models/product');
 
 
 // ROTAS
-    //Nota: qualquer uma destas rotas é apenas o sufixo de localhost:xx/posts
+    //Nota: qualquer uma destas rotas é apenas o sufixo de localhost:xx/product
     //pq o resto está definido em ProductRoute no folder app.js
   
 // Retorna todos os produtos
 router.get('/GetProducts', async (request, response) => { 
     try{
-        const products = await Product.find();
-        response.json(products);
+        const products = await Product.find(); // Encontra os produtos
+        response.json(products); // Resposta JSON com os produtos 
     } catch(err)
     {
-        response.json({message:err});
+        response.json({message:err}); // Retorna erro
     }
 });
 
 // Retorna um produto com um nome especifico
 router.get('/GetProducts/Name/:product_name', async(request, response) => {
     try {
-        const product = await Product.find({product_name: request.params.product_name}).exec();
-
-        response.json(product);
+        const product = await Product.find({product_name: request.params.product_name}).exec(); // Encontra o produto com o nome recebido no url
+        response.json(product); // Retorna o produto encontrado
     } catch(err) {
-        response.json({message: err});
+        response.json({message: err});  // Retorna erro
     }
 });
 
 // Retorna um produto com um Id especifico
 router.get('/GetProducts/Id/:productId', async(request, response) => {
     try {
-        const product = await Product.findById(request.params.productId);
+        const product = await Product.findById(request.params.productId); 
 
         response.json(product);
     } catch(err) {
@@ -78,14 +77,14 @@ router.delete('/DeleteProduct/Id/:productId', async(request, response) => {
 router.patch('/UpdatePrice/Id/:productId', async(request, response) => {
     try {
             const updatedPost = await Product.updateOne(
-                { _id: request.params.productId },
-                { $set: { list_price: request.body.list_price} } 
+                { _id: request.params.productId }, // Encontra o produto a atualizar
+                { $set: { list_price: request.body.list_price} }  //Atualiza-o
             ); 
         
-        response.json(updatedPost);
+        response.json('Updated Succesfully'); // Retorna o produto atualizado
 
     } catch(err) {
-        response.json({message: err});
+        response.json({message: err}); // Erro
     }
 });
 

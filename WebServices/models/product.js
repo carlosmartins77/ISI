@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-//Criar o objeto produto 
+//Criar o objeto produto (Equivalente a classe no C#)
 const ProductSchema = mongoose.Schema({
     product_name: {
         type: String,

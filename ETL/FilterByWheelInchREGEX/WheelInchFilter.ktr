@@ -437,18 +437,18 @@
   </notepads>
   <order>
     <hop>
-      <from>MongoDB input</from>
-      <to>Regex evaluation</to>
+      <from>MongoDB Produtos</from>
+      <to>Regex (Search for 16-Inch)</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Regex evaluation</from>
+      <from>Regex (Search for 16-Inch)</from>
       <to>Filter rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Filter rows</from>
-      <to>XML output</to>
+      <to>XML Product w/ 16 Inch</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -468,7 +468,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>XML output</send_true_to>
+    <send_true_to>XML Product w/ 16 Inch</send_true_to>
     <send_false_to>Dummy (do nothing)</send_false_to>
     <compare>
       <condition>
@@ -496,13 +496,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>352</yloc>
+      <xloc>528</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>MongoDB input</name>
+    <name>MongoDB Produtos</name>
     <type>MongoDbInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -578,13 +578,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>192</xloc>
-      <yloc>352</yloc>
+      <xloc>208</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Regex evaluation</name>
+    <name>Regex (Search for 16-Inch)</name>
     <type>RegexEval</type>
     <description/>
     <distribute>Y</distribute>
@@ -618,13 +618,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>352</xloc>
-      <yloc>352</yloc>
+      <xloc>384</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>XML output</name>
+    <name>XML Product w/ 16 Inch</name>
     <type>XMLOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -755,8 +755,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>352</yloc>
+      <xloc>752</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -780,8 +780,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>448</yloc>
+      <xloc>752</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

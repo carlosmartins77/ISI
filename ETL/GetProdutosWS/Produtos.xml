@@ -313,4 +313,5 @@
 <Produto><Id>311</Id> <Nome>Electra Townie Commute 8D - 2018</Nome> <Marca>Electra</Marca> <Categoria>Comfort Bicycles</Categoria> <Ano>2018</Ano> <Preço>749,99</Preço> <Quantidade>20</Quantidade></Produto>
 <Produto><Id>312</Id> <Nome>Electra Townie Commute 8D Ladies' - 2018</Nome> <Marca>Electra</Marca> <Categoria>Comfort Bicycles</Categoria> <Ano>2018</Ano> <Preço>699,99</Preço> <Quantidade>23</Quantidade></Produto>
 <Produto><Id>313</Id> <Nome>Electra Townie Original 1 Ladies' - 2018</Nome> <Marca>Electra</Marca> <Categoria>Comfort Bicycles</Categoria> <Ano>2018</Ano> <Preço>449,99</Preço> <Quantidade>14</Quantidade></Produto>
+<Produto><Id/> <Nome>BMX</Nome> <Marca>IPCA</Marca> <Categoria>Small</Categoria> <Ano>2021</Ano> <Preço>500,0</Preço> <Quantidade>10</Quantidade></Produto>
 </Produtos>

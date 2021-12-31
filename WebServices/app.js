@@ -11,13 +11,13 @@ app.use(bodyparser.json());
 
 // Importar Rotas
 const ProductRoute = require('./Rotas/product');
-app.use('/product', ProductRoute); 
+app.use('/product', ProductRoute);  // Prefixo de cada um dos serviços
 
 // Conectar à base de dados 
 mongoose.connect(process.env.DB_CONNECTION,  // Para encriptar a connection string
 () => console.log('Succesfully conected!'));
 
 // Conectar ao servidor
-app.listen(3000); // Ouvir a porta 3000
+app.listen(3000); // Liga-lo  na porta 3000
 
 // "npm install mongoose" -> pacote para conectar ao mongodb

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Bikes>
-<Bike Id="61c8730805ce5f6d8dc94dc1"> <Nome>Electra Girl's Hawaii 1 (16-inch) - 2015/2016</Nome> <Categoria>Cruisers Bicycles</Categoria> <Quantidade>8</Quantidade> <Ano>2016</Ano> <Marca>Electra</Marca> <Preço>269,99</Preço></Bike>
-<Bike Id="61c8730805ce5f6d8dc94dc9"> <Nome>Electra Girl's Hawaii 1 (16-inch) - 2015/2016</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>29</Quantidade> <Ano>2016</Ano> <Marca>Electra</Marca> <Preço>269,99</Preço></Bike>
-<Bike Id="61c8730805ce5f6d8dc94ecd"> <Nome>Electra Cyclosaurus 1 (16-inch) - Boy's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>6</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
-<Bike Id="61c8730805ce5f6d8dc94ed0"> <Nome>Electra Soft Serve 1 (16-inch) - Girl's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>20</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
-<Bike Id="61c8730805ce5f6d8dc94ed2"> <Nome>Electra Straight 8 1 (16-inch) - Boy's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>2</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
-<Bike Id="61c8730805ce5f6d8dc94edd"> <Nome>Electra Water Lily 1 (16-inch) - Girl's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>26</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
+<Bike Id="61cdccecc799d23a80d12e06"> <Nome>Electra Girl's Hawaii 1 (16-inch) - 2015/2016</Nome> <Categoria>Cruisers Bicycles</Categoria> <Quantidade>8</Quantidade> <Ano>2016</Ano> <Marca>Electra</Marca> <Preço>269,99</Preço></Bike>
+<Bike Id="61cdccecc799d23a80d12e0e"> <Nome>Electra Girl's Hawaii 1 (16-inch) - 2015/2016</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>29</Quantidade> <Ano>2016</Ano> <Marca>Electra</Marca> <Preço>269,99</Preço></Bike>
+<Bike Id="61cdccecc799d23a80d12f12"> <Nome>Electra Cyclosaurus 1 (16-inch) - Boy's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>6</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
+<Bike Id="61cdccecc799d23a80d12f15"> <Nome>Electra Soft Serve 1 (16-inch) - Girl's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>20</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
+<Bike Id="61cdccecc799d23a80d12f17"> <Nome>Electra Straight 8 1 (16-inch) - Boy's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>2</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
+<Bike Id="61cdccecc799d23a80d12f22"> <Nome>Electra Water Lily 1 (16-inch) - Girl's - 2018</Nome> <Categoria>Children Bicycles</Categoria> <Quantidade>26</Quantidade> <Ano>2018</Ano> <Marca>Electra</Marca> <Preço>279,99</Preço></Bike>
 </Bikes>

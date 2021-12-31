@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
   <name>GerarHTMLVendasCategoria</name>
-  <description/>
-  <extended_description/>
-  <job_version/>
+  <description />
+  <extended_description />
+  <job_version />
   <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
@@ -15,12 +15,12 @@
   <slaveservers>
     </slaveservers>
   <job-log-table>
-    <connection/>
-    <schema/>
-    <table/>
-    <size_limit_lines/>
-    <interval/>
-    <timeout_days/>
+    <connection />
+    <schema />
+    <table />
+    <size_limit_lines />
+    <interval />
+    <timeout_days />
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -128,10 +128,10 @@
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection/>
-    <schema/>
-    <table/>
-    <timeout_days/>
+    <connection />
+    <schema />
+    <table />
+    <timeout_days />
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -219,10 +219,10 @@
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection/>
-    <schema/>
-    <table/>
-    <timeout_days/>
+    <connection />
+    <schema />
+    <table />
+    <timeout_days />
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -285,13 +285,12 @@
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file/>
+  <shared_objects_file />
   <entries>
     <entry>
       <name>START</name>
-      <description/>
+      <description />
       <type>SPECIAL</type>
-      <attributes/>
       <start>Y</start>
       <dummy>N</dummy>
       <repeat>N</repeat>
@@ -307,37 +306,34 @@
       <nr>0</nr>
       <xloc>144</xloc>
       <yloc>192</yloc>
-      <attributes_kjc/>
     </entry>
     <entry>
       <name>Gerar o XML</name>
-      <description/>
+      <description />
       <type>TRANS</type>
-      <attributes/>
       <specification_method>filename</specification_method>
-      <trans_object_id/>
+      <trans_object_id />
       <filename>${Internal.Entry.Current.Directory}/SalesPerCategory.ktr</filename>
-      <transname/>
+      <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
+      <logfile />
+      <logext />
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name/>
+      <slave_server_name />
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <create_parent_folder>N</create_parent_folder>
       <logging_remote_work>N</logging_remote_work>
       <run_configuration>Pentaho local</run_configuration>
-      <suppress_result_data>N</suppress_result_data>
       <parameters>
         <pass_all_parameters>Y</pass_all_parameters>
       </parameters>
@@ -346,13 +342,11 @@
       <nr>0</nr>
       <xloc>352</xloc>
       <yloc>192</yloc>
-      <attributes_kjc/>
     </entry>
     <entry>
       <name>XSL + XML = HTML</name>
-      <description/>
+      <description />
       <type>XSLT</type>
-      <attributes/>
       <xmlfilename>${Internal.Entry.Current.Directory}/QuantidadePorCategoria.xml</xmlfilename>
       <xslfilename>${Internal.Entry.Current.Directory}/xslPieChart.xsl</xslfilename>
       <outputfilename>${Internal.Entry.Current.Directory}/QuantidadeCategoria.html</outputfilename>
@@ -369,25 +363,21 @@
       <nr>0</nr>
       <xloc>704</xloc>
       <yloc>192</yloc>
-      <attributes_kjc/>
     </entry>
     <entry>
       <name>Success</name>
-      <description/>
+      <description />
       <type>SUCCESS</type>
-      <attributes/>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>896</xloc>
       <yloc>192</yloc>
-      <attributes_kjc/>
     </entry>
     <entry>
       <name>Valida XML</name>
-      <description/>
+      <description />
       <type>XML_WELL_FORMED</type>
-      <attributes/>
       <arg_from_previous>Y</arg_from_previous>
       <include_subfolders>N</include_subfolders>
       <nr_errors_less_than>10</nr_errors_less_than>
@@ -400,7 +390,17 @@
       <nr>0</nr>
       <xloc>512</xloc>
       <yloc>192</yloc>
-      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Abort job</name>
+      <description />
+      <type>ABORT</type>
+      <message />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>512</xloc>
+      <yloc>304</yloc>
     </entry>
   </entries>
   <hops>
@@ -438,6 +438,15 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Valida XML</from>
+      <to>Abort job</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
